@@ -1,16 +1,25 @@
+import java.util.Random;
+
 public class GewinnModel {
     private int gesamtPunkte;
     private int spielerZahl;
     private int computerZahl;
     private int rundenErgebnis;
 
-    public GewinnModel(int gesamtPunkte, int spielerZahl, int computerZahl, int rundenErgebnis) {
-        this.gesamtPunkte = gesamtPunkte;
-        this.spielerZahl = spielerZahl;
-        this.computerZahl = computerZahl;
-        this.rundenErgebnis = rundenErgebnis;
+    public GewinnModel() {
+        this.gesamtPunkte = 0;
+        this.spielerZahl = 0;
+        this.computerZahl = 0;
+        this.rundenErgebnis = 0;
     }
 
+    public int berechneComputerZahl(){
+        Random random = new Random();
+        return random.nextInt(9) +1;
+    }
+    public void berechneRunde(int spielerZahl){
+        
+    }
 
     public int getGesamtPunkte() {
         return gesamtPunkte;
