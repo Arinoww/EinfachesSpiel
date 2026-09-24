@@ -31,6 +31,16 @@ public class GewinnModel {
         gesamtPunkte += rundenErgebnis;
     }
 
+
+    public boolean hatGewonnen(){
+        if (gesamtPunkte >= 100) return true;
+        return false;
+    }
+    public boolean hatVerloren(){
+        if (gesamtPunkte <= 0) return true;
+        return false;
+    }
+
     public int getGesamtPunkte() {
         return gesamtPunkte;
     }
@@ -62,4 +72,6 @@ public class GewinnModel {
     public void setRundenErgebnis(int rundenErgebnis) {
         this.rundenErgebnis = rundenErgebnis;
     }
+
+
 }
