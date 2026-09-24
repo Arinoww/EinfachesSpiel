@@ -7,7 +7,7 @@ public class GewinnModel {
     private int rundenErgebnis;
 
     public GewinnModel() {
-        this.gesamtPunkte = 0;
+        this.gesamtPunkte = 30;
         this.spielerZahl = 0;
         this.computerZahl = 0;
         this.rundenErgebnis = 0;
@@ -17,8 +17,18 @@ public class GewinnModel {
         Random random = new Random();
         return random.nextInt(9) +1;
     }
-    public void berechneRunde(int spielerZahl){
-        
+    public void berechneRunde(int spielerZ){
+        computerZahl = berechneComputerZahl();
+        if(computerZahl == spielerZ){
+            rundenErgebnis = 20;
+        } else if (spielerZ + 1 == computerZahl || spielerZ - 1 == computerZahl) {
+            rundenErgebnis = 5;
+        }
+        else{
+            rundenErgebnis = -10;
+        }
+        spielerZahl = spielerZ;
+        gesamtPunkte += rundenErgebnis;
     }
 
     public int getGesamtPunkte() {
