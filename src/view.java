@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class view extends JFrame {
 
@@ -45,6 +46,46 @@ public class view extends JFrame {
         setSize(640, 380);
 
         setVisible(true);
+    }
+    public String getSpielerEingabe() {
+        return txtSpieler.getText().trim();
+    }
+
+    public void setRundenErgebnis(String text) {
+        lbRundenPunkte.setText(text);
+    }
+
+    public void setGesamtPunkte(String text) {
+        lbgesamtPunkte.setText(text);
+    }
+
+    public void setComputerZahl(String text) {
+        txtcomp.setText(text);
+    }
+
+    public void setEingabeAktiv(boolean aktiv) {
+        txtSpieler.setEditable(aktiv);
+    }
+
+    public void zeigeFehler(String meldung) {
+        JOptionPane.showMessageDialog(this, meldung,
+                "Ungültige Eingabe", JOptionPane.WARNING_MESSAGE);
+    }
+
+    public void neueRunde() {
+        txtSpieler.setText("");
+        txtcomp.setText("");
+        lbRundenPunkte.setText(strtTxt);
+        txtSpieler.setEditable(true);
+        txtSpieler.requestFocusInWindow();
+    }
+
+    public void addSZahlListener(ActionListener listener) {
+        txtSpieler.addActionListener(listener);
+    }
+
+    public void addNEListener(ActionListener listener) {
+        btnagain.addActionListener(listener);
     }
 
     private static JLabel TitleLabel(String text){
