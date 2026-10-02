@@ -11,6 +11,8 @@ public class view extends JFrame {
     private final JLabel compLabel = TitleLabel("Computer:");
     private final JLabel lbRundenPunkte = wertLabel(strtTxt);
     private final JLabel lbgesamtPunkte = wertLabel("");
+    private final JTextField txtSpieler = zahlenf(true);
+    private final JTextField txtcomp = zahlenf(false);
     private final JButton btnagain = new JButton("noch einmal");
 
     public view(){
@@ -18,7 +20,27 @@ public class view extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+        JPanel oben = new JPanel(new GridLayout(3, 2, 5, 5));
+        oben.add(rndErg);
+        oben.add(gsmtErg);
+        oben.add(lbRundenPunkte);
+        oben.add(lbgesamtPunkte);
+        oben.add(zahlLabel);
+        oben.add(compLabel);
 
+
+        JPanel mitte = new JPanel(new GridLayout(1, 2, 15, 0));
+        mitte.setBorder(BorderFactory.createEmptyBorder(10, 5, 10, 5));
+        mitte.add(txtSpieler);
+        mitte.add(txtcomp);
+
+        JPanel unten = new JPanel();
+        btnagain.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        unten.add(btnagain);
+
+        add(oben, BorderLayout.NORTH);
+        add(mitte, BorderLayout.CENTER);
+        add(unten, BorderLayout.SOUTH);
 
         setSize(640, 380);
 
