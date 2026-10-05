@@ -114,7 +114,4 @@ public class view extends JFrame {
         return field;
     }
 
-    public static void main(String[] args) {
-        view f = new view();
-    }
 }
