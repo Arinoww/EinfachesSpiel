@@ -37,6 +37,8 @@ public class Controller {
         } else {
             gui.setRundenErgebnis(String.format("%+d", model.getRundenErgebnis()));
         }
+        gui.setEingabeAktiv(false);
+        gui.setButtonAktiv(!spielVorbei());
     }
 
     private boolean spielVorbei() {
@@ -46,6 +48,8 @@ public class Controller {
         if (spielVorbei()) {
             return;
         }
+        gui.setEingabeAktiv(true);
+        gui.setButtonAktiv(false);
         gui.neueRunde();
     }
 
