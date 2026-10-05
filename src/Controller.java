@@ -7,9 +7,13 @@ public class Controller {
         this.gui = gui;
         gui.setGesamtPunkte("Gesamtpunkte: " + model.getGesamtPunkte());
         gui.addSZahlListener(e -> rundeSpielen());
+        gui.addNEListener(e -> neueRunde());
     }
 
     private void rundeSpielen() {
+        if (spielVorbei()) {
+            return;
+        }
         String eingabe = gui.getSpielerEingabe();
         if (!istGueltig(eingabe)) {
             gui.zeigeFehler("Bitte eine ganze Zahl von 1 bis 9 eingeben.");
@@ -25,8 +29,24 @@ public class Controller {
 
     private void aktualisiereAnzeige() {
         gui.setComputerZahl(String.valueOf(model.getComputerZahl()));
-        gui.setRundenErgebnis(String.format("%+d", model.getRundenErgebnis()));
         gui.setGesamtPunkte(String.valueOf(model.getGesamtPunkte()));
+        if (model.hatGewonnen()) {
+            gui.setRundenErgebnis("Gewonnen");
+        } else if (model.hatVerloren()) {
+            gui.setRundenErgebnis("Verloren");
+        } else {
+            gui.setRundenErgebnis(String.format("%+d", model.getRundenErgebnis()));
+        }
+    }
+
+    private boolean spielVorbei() {
+        return model.hatGewonnen() || model.hatVerloren();
+    }
+    private void neueRunde() {
+        if (spielVorbei()) {
+            return;
+        }
+        gui.neueRunde();
     }
 
     public static void main(String[] args) {
