@@ -37,6 +37,7 @@ public class view extends JFrame {
 
         JPanel unten = new JPanel();
         btnagain.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        btnagain.setEnabled(false);
         unten.add(btnagain);
 
         add(oben, BorderLayout.NORTH);
@@ -63,8 +64,13 @@ public class view extends JFrame {
         txtcomp.setText(text);
     }
 
+
     public void setEingabeAktiv(boolean aktiv) {
-        txtSpieler.setEditable(aktiv);
+        txtSpieler.setEnabled(aktiv);
+    }
+
+    public void setButtonAktiv(boolean aktiv) {
+        btnagain.setEnabled(aktiv);
     }
 
     public void zeigeFehler(String meldung) {
