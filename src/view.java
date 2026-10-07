@@ -59,6 +59,11 @@ public class view extends JFrame {
         lbgesamtPunkte.setText(text);
     }
 
+    public void setErgebnisFarbe(Color farbe) {
+        lbRundenPunkte.setBackground(farbe);
+        lbgesamtPunkte.setBackground(farbe);
+    }
+
     public void setComputerZahl(String text) {
         txtcomp.setText(text);
     }
@@ -78,6 +83,7 @@ public class view extends JFrame {
         lbRundenPunkte.setText(strtTxt);
         txtSpieler.setEditable(true);
         txtSpieler.requestFocusInWindow();
+        setErgebnisFarbe(Color.WHITE);
     }
 
     public void addSZahlListener(ActionListener listener) {
@@ -98,6 +104,7 @@ public class view extends JFrame {
         JLabel label = new JLabel(text, SwingConstants.CENTER);
         label.setFont(new Font("SansSrerif",Font.PLAIN, 22));
         label.setBackground(Color.WHITE);
+        label.setOpaque(true);
         return label;
     }
 
