@@ -1,6 +1,8 @@
+import java.awt.Color;
 public class Controller {
     private final GewinnModel model;
     private final view gui;
+
 
     public Controller(GewinnModel model, view gui) {
         this.model = model;
@@ -39,6 +41,7 @@ public class Controller {
         }
         gui.setEingabeAktiv(false);
         gui.setButtonAktiv(!spielVorbei());
+        gui.setErgebnisFarbe(model.getRundenErgebnis() > 0 ? Color.GREEN : Color.RED);
     }
 
     private boolean spielVorbei() {
